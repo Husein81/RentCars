@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="project.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+ 
+    
+</head>
+
+<body >
+  <header class="header">
+
+    <div id="menu-btn" class="fas fa-bars"></div>
+
+    <a href="Home.html#home" class="logo"> <span>LU </span>wheels </a>
+
+    <nav class="navbar">
+        <a href="Home.html#home">home</a>
+        <a href="Home.html#vehicles">Feature</a>
+        <a href="products.html">vehicles</a>
+        <a href="Home.html#contact">contact</a>
+    </nav>
+   
+</header> 
+<div class="hero">
+  <h1>Login</h1>
+</div>
+        <center>
+       <div class="login-box">
+        <div class="login-head">
+            <h2>Login </h2>
+ 
+        </div>
+        
+        <div class="login-form">
+        <label for="">Username</label><input type="text" name="" id="username"><span class="alert"></span>
+        <label for="">Password</label><input type="password" name="" id="password1"><span class="alert1"></span>
+        <input type="submit" class="btn" onclick="validateForm()" value="Login">
+       </div>
+       <p>Don't have an account? <a href="login.html#register" class="register-link">Create Account</a></p>
+       </div>
+      </center>
+       <!-- register -->
+       <center>
+       <div id="register"class="hidden register-box ">
+        <div class="register-head">
+            <h2>Create Account</h2>
+        </div>
+        <div class="register-form">
+        <label for="">Username</label><input type="text" name="" id="" >
+        <label for="">Email</label><input type="email" name="" id="" >
+        <label for="">Password</label><input type="password" name="" id="password" ><span id="password-strength"></span>
+        <input type="submit" class="btn" onclick="checkPasswordStrength()" value="Sign Up">
+       </div>
+       <p>If you have an Account 
+       <a href="login.html" class="login-link">Log in</a></p>
+       </div></center>
+    <footer class="footer" id="footer">
+
+        <div class="box-container">
+    
+            <div class="box">
+                <h3>our branches</h3>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Tyre </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Beirut </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Saida </a>
+           
+            </div>
+    
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="Home.html#home"> <i class="fas fa-arrow-right"></i> home </a>
+                <a href="Home.html#vehicles"> <i class="fas fa-arrow-right"></i> feature </a>
+                <a href="products.html"><i class="fas fa-arrow-right"></i> vehicles</a>
+                <a href="Home.html#contact"> <i class="fas fa-arrow-right"></i> contact </a>
+            </div>
+    
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#"> <i class="fas fa-envelope"></i> LUTeam@gmail.com </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Elhadth, Beirut, Lebanon </a>
+            </div>
+    
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+                <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+                <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+            </div>
+    
+        </div>
+    
+        <div class="credit"> created by LU Students | all rights reserved </div>
+    
+    </footer>  
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+  
+    <script src="project.css"></script>
+    <script>
+       
+       const link=document.querySelector(".register-link");
+       const loginlink=document.querySelector(".login-link");
+       const register=document.querySelector(".register-box");
+       const login=document.querySelector('.login-box');
+      
+       link.addEventListener('click',show=()=>{
+        register.classList.toggle('active');
+        register.classList.remove('hidden');
+        login.classList.toggle('hidden')
+
+       })
+       loginlink.addEventListener('click',show1=()=>{
+        login.classList.toggle('active');
+        login.classList.remove('hidden');
+        register.classList.toggle('hidden')
+
+       })
+
+function validateForm() {
+  var username = document.getElementById("username");
+  var password = document.getElementById("password1");
+  var alert=document.querySelector('.alert')
+  var alert1=document.querySelector('.alert1')
+  if (username.value == "" ){
+    alert.style.color='red'
+    alert.innerHTML="Please fill in this field."; 
+}  else{
+  alert.innerHTML=''
+}
+if(password.value == "") {
+    alert1.style.color='red'
+    alert1.innerHTML="Please fill in this field.";
+}else{
+  alert1.innerHTML=''
+}
+ return true;
+}
+function checkPasswordStrength() {
+  var password = document.getElementById("password").value;
+  var passwordStrength = document.getElementById("password-strength");
+ if(password.length==0){
+  passwordStrength.style.color='red'
+  passwordStrength.innerHTML="Please enter a password"
+ }
+  else if (password.length < 6) {
+    passwordStrength.style.color='red'
+    passwordStrength.innerHTML = "Password too weak";
+  } else if (password.length < 10) {
+    passwordStrength.style.color='yellow'
+    passwordStrength.innerHTML = "Password moderately strong";
+  } else {
+    passwordStrength.style.color='green'
+    passwordStrength.innerHTML = "Password very strong";
+  }
+}
+  </script>
+
+</body>
+</html>
